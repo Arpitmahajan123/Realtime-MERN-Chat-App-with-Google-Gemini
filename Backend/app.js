@@ -6,7 +6,7 @@ import connectDB from './db/db.js';
 // Importing dotenv to manage environment variables
 import dotenv from 'dotenv';
 dotenv.config();
-
+import userRoutes from './routes/user.routes.js';
 
  
 // Connect to MongoDB
@@ -22,6 +22,8 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+app.use('/users', userRoutes);
 
 
 app.get('/', (req, res) => {
